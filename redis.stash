@@ -1,0 +1,448 @@
+# <#>Redis<> SpeedSheet
+<b>What you need, faster.<>
+
+
+
+# Help!
+
+Want to contribute to this speedsheet?
+
+You can submit updates on Github:
+<l>https://github.com/speedsheet/speedsheets<>
+
+SpeedSheet Format:
+<l>/s/stash<>
+
+
+We love having speedsheets for our favorite languages, libraries and tech. But we don't have remotely enough time for all the great docs we want to create. If you would like to help, it would be greatly appreciated! Send your updates to the <l https://github.com/speedsheet/speedsheets>speedsheets repo<>!
+
+And thanks!
+
+
+# Summary
+
+
+### Configuration File
+
+The default configuration file name:
+
+<cb>redis.config<>
+
+
+### Server Port (Default)
+
+<cb>6379<>
+
+
+### Server Configuration
+
+Single threaded but has support for clustering (horizontal scaling, master/slave configuration).
+
+
+
+# Server Commands
+
+
+
+### Server - Build
+
+From Redis Source Folder:
+
+<cb>make<>
+
+
+
+### Server - Start
+
+<cb>redis-server 
+
+<cb>redis-server <v>path/to/redis.conf<><>
+
+
+
+### Server - Stop
+
+<cb>redis-server stop<>
+
+<cb>redis-cli shutdown<>
+
+
+
+### Server - Restart
+
+<cb>redis-server restart <>
+
+
+
+### Server Connection - Test
+
+<cb>redis-cli ping<>
+@
+@ redis-cli ping
+
+
+
+# Command Line Interface
+
+<cb>redis-cli<>
+@
+@ redis-cli, cli
+
+
+
+### CLI - Start
+
+<cb>redis-cli<>
+@
+@ start cli, redis-cli
+
+
+
+### CLI - Exit
+
+<cb>exit<>
+
+or
+
+<cb>quit<>
+
+
+Type <c>exit<> or <c>quit<> from inside the cli to exit.
+@
+@ cli, exit, quit, redis-cli
+
+
+
+# Key
+
+
+Commands:
+<l>https://redis.io/commands#generic<>
+
+
+
+### Key - Create / Update
+
+<cb>set <v>key_name<> <v>value<><>
+@
+@ Set
+
+
+
+### Key - Retrieve
+
+<cb>get <v>key_name<><>
+
+Returns the key's value.
+@
+@ get, item, value
+
+
+
+### Key - Delete
+
+<cb>del <v>key_name_1<><>
+
+<cb>del <v>key_name_1<> <v>key_name_2<> <v>...<><>
+@
+@ del, remove
+
+
+
+### Key - Type
+
+<cb>type <v>key_name<><>
+
+Returns the type of the key (e.g. string, list).
+@
+@ get, retrieve
+
+
+
+### Keys - Count
+
+<cb>dbsize<>
+
+
+
+### Keys - Retrieve All
+
+<cb>keys *<>
+
+Lists all database key names.
+@
+@ get
+
+
+
+# Data Types
+
+<cb>none
+hash
+list
+set
+string
+zset<>
+
+
+
+# Type
+
+
+## Hash
+
+Type:
+
+<cb>hash<>
+
+Field value maps.
+Both fields and values are strings.
+
+
+Commands:
+<l>https://redis.io/commands#hash<>
+@
+@ new, instantiate, create
+
+
+
+## List
+
+Create:
+
+<cb>rpush <v>list_1<> <v>value_1<><>
+
+<cb>rpush <v>list_1<> <v>value_1<> <v>value_2<> <v>...<><>
+
+Type:
+
+<cb>List<>
+
+
+List of strings ordered by insert order.
+
+
+Commands:
+<l>https://redis.io/commands#list<>
+@
+@ new, instantiate, create
+
+
+
+## List Operations
+
+
+### List - Size
+
+<cb>llen <v>list_1<><>
+
+Returns the number of items in the list.
+@
+@ key, llen, length, count
+
+
+
+### List - Get
+
+<cb>lindex <v>list_1<> <v>index<><>
+
+Inedxes are zero based.
+@
+@ lindex, item, value, position, index, retrieve
+
+
+
+### List - Get First
+
+<cb>lindex <v>list_1<> 0<>
+@
+@ lindex, item, value, top leftmost, retrieve
+
+
+
+### List - Get Last
+
+<cb>lindex <v>list_1<> -1<>
+@
+@ lindex, item, value, end, rightmost, retrieve
+
+
+
+### List - Get All
+
+<cb>lrange <v>list_1<> 0 -1<>
+@
+@ key, lrange, retrieve
+
+
+
+### List - Push To Beginning
+
+<cb>lpush <v>list_1<> <v>value<><>
+
+Adds an item to the beginning of the list (leftmost side).
+@
+@ lpush
+@ key, item, value, add, insert, first, start, top, left, insert
+
+
+
+### List - Push To End
+
+<cb>rpush <v>list_1<> <v>value<><>
+
+Adds an item to the end of the list (rightmost side).
+@
+@ rpush
+@ key, item, value, add, last, append, rightmost
+
+
+
+### List - Pop First Item
+
+<cb>lpop <v>list_1<><>
+
+Retrieves and removes frist item (leftmost side).
+@
+@ lpop
+@ key, item, value, top, left
+
+
+
+### List - Pop Last Item
+
+<cb>rpop <v>list_1<><>
+
+Retrieves and removes frist item (rightmost side).
+@
+@ rpop
+@ key, item, value, end, rightmost.
+
+
+
+## Set
+
+Create:
+
+<cb>sadd <v>set_1<> <v>value_1<> <v>value_2<> <v>...<><>
+
+Type:
+
+<cb>set<>
+
+Unordered collection of strings.
+
+
+Commands:
+<l>https://redis.io/commands#set<>
+@
+@ new, instantiate, create
+
+
+
+## Set Operations
+
+
+### Set - Contains Value?
+
+<cb>sismember <v>set_1<> <v>value<><>
+
+Returns all items in the set.
+@
+@ sismember
+@ key, item, is member
+
+
+
+### Set - Add
+
+<cb>sadd <v>set_1<> <v>value_1<><>
+
+<cb>sadd <v>set_1<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+
+### Set - Get All
+
+<cb>smembers <v>set_1<><>
+
+Returns all items in the set.
+@
+@ scard
+@ key, length, count
+
+
+
+### Set - Size
+
+<cb>scard <v>set_1<><>
+
+Returns the number of items in the set.
+@
+@ scard
+@ key, length, count
+
+
+
+## String
+
+Create:
+
+<cb>set <v>string_1<> "<v>string value.<>"<>
+
+Type:
+
+<cb>string<>
+
+
+Commands:
+<l>https://redis.io/commands#string<>
+@
+@ new, instantiate, create
+
+
+
+## String Operations
+
+
+### String - Get
+
+<cb>get <v>string_1<><>
+@
+@ item, value
+
+
+### String - Update
+
+<cb>set <v>string_1<> "<v>new string value.<>"<>
+@
+@ change, item, value
+
+
+
+## ZSet
+
+<cb>zadd <v>zset_1<> <v>value_1<><>
+
+<cb>zadd <v>zset_1<> <v>value_1<> <v>value_2<> <v>...<><>
+
+Type:
+
+<cb>zset<>
+
+A sorted set of unique values.
+
+
+Commands:
+<l>https://redis.io/commands#sorted_set<>
+@
+@ new, instantiate, create
+
+
+
+# Glossary
+
+
+### Redis
+Remote Dictionary Service
+
