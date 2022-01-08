@@ -1,5 +1,5 @@
 # <#>Redis<> SpeedSheet
-<b>What you need, faster.<>
+<b>Find what you need, faster.<>
 
 
 
@@ -54,7 +54,7 @@ From Redis Source Folder:
 
 ### Server - Start
 
-<cb>redis-server 
+<cb>redis-server<>
 
 <cb>redis-server <v>path/to/redis.conf<><>
 
