@@ -2,7 +2,6 @@
 <b>Find what you need, faster.<>
 
 
-
 # Help!
 
 Want to contribute to this speedsheet?
@@ -191,16 +190,13 @@ zset<>
 
 ## Hash
 
+A map of field, value strings.
+
 Type:
 
 <cb>hash<>
 
-Field value maps.
 Both fields and values are strings.
-
-
-Commands:
-<l>https://redis.io/commands#hash<>
 @
 @ new, instantiate, create
 
@@ -208,144 +204,182 @@ Commands:
 
 ## List
 
-Create:
-
-<cb>rpush <v>list_1<> <v>value_1<><>
-
-<cb>rpush <v>list_1<> <v>value_1<> <v>value_2<> <v>...<><>
+A list of strings ordered by insert order.
 
 Type:
 
 <cb>List<>
 
 
-List of strings ordered by insert order.
+Create:
 
+<cb>rpush <v>list_name<> <v>value_1<><>
 
-Commands:
-<l>https://redis.io/commands#list<>
-@
-@ new, instantiate, create
+<cb>rpush <v>list_name<> <v>value_1<> <v>value_2<> <v>...<><>
 
 
 
 ## List Operations
 
 
-### List - Size
+### List - Create
 
-<cb>llen <v>list_1<><>
+<cb>rpush <v>list_name<> <v>value_1<><>
 
-Returns the number of items in the list.
+<cb>rpush <v>list_name<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+Creates a new list.
 @
-@ key, llen, length, count
+@ rpush, command
+@ new, define, instantiate
 
 
 
 ### List - Get
 
-<cb>lindex <v>list_1<> <v>index<><>
+<cb>lindex <v>list_name<> <v>index<><>
 
-Inedxes are zero based.
+
+Returns an item from the list.
+
+Indexes are zero based.
 @
-@ lindex, item, value, position, index, retrieve
+@ lindex, command
+@ item, value, position, index, retrieve
 
 
 
 ### List - Get First
 
-<cb>lindex <v>list_1<> 0<>
+<cb>lindex <v>list_name<> 0<>
+
+
+Returns the first item from a list.
 @
-@ lindex, item, value, top leftmost, retrieve
+@ lindex, command
+@ item, value, top leftmost, retrieve
 
 
 
 ### List - Get Last
 
-<cb>lindex <v>list_1<> -1<>
+<cb>lindex <v>list_name<> -1<>
+
+
+Returns the last item on a list.
 @
-@ lindex, item, value, end, rightmost, retrieve
+@ lindex, command
+@ item, value, end, rightmost, retrieve
 
 
 
 ### List - Get All
 
-<cb>lrange <v>list_1<> 0 -1<>
+<cb>lrange <v>list_name<> 0 -1<>
+
+
+Returns all items from a list.
 @
-@ key, lrange, retrieve
+@ lrange, command
+@ key, retrieve
 
 
 
 ### List - Push To Beginning
 
-<cb>lpush <v>list_1<> <v>value<><>
+<cb>lpush <v>list_name<> <v>value<><>
+
 
 Adds an item to the beginning of the list (leftmost side).
 @
-@ lpush
+@ lpush, command
 @ key, item, value, add, insert, first, start, top, left, insert
 
 
 
 ### List - Push To End
 
-<cb>rpush <v>list_1<> <v>value<><>
+<cb>rpush <v>list_name<> <v>value<><>
+
 
 Adds an item to the end of the list (rightmost side).
 @
-@ rpush
+@ rpush, command
 @ key, item, value, add, last, append, rightmost
 
 
 
 ### List - Pop First Item
 
-<cb>lpop <v>list_1<><>
+<cb>lpop <v>list_name<><>
+
 
 Retrieves and removes frist item (leftmost side).
 @
-@ lpop
+@ lpop, command
 @ key, item, value, top, left
 
 
 
 ### List - Pop Last Item
 
-<cb>rpop <v>list_1<><>
+<cb>rpop <v>list_name<><>
 
-Retrieves and removes frist item (rightmost side).
+Retrieves
+ and removes frist item (rightmost side).
 @
-@ rpop
+@ rpop, command
 @ key, item, value, end, rightmost.
+
+
+
+### List - Size
+
+<cb>llen <v>list_name<><>
+
+
+Returns the number of items in the list.
+@
+@ llen, command
+@ key, length, count
 
 
 
 ## Set
 
-Create:
-
-<cb>sadd <v>set_1<> <v>value_1<> <v>value_2<> <v>...<><>
+An unordered collection of strings.
 
 Type:
 
 <cb>set<>
 
-Unordered collection of strings.
 
+Create:
 
-Commands:
-<l>https://redis.io/commands#set<>
-@
-@ new, instantiate, create
+<cb>sadd <v>set_1<> <v>value_1<> <v>value_2<> <v>...<><>
 
 
 
 ## Set Operations
 
 
+### Set - Create
+
+<cb>sadd <v>set_name<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+Creates a new list (if doesn't exit) and adds the items to it.
+@
+@ sadd, command
+@ new, define, instantiate
+
+
+
 ### Set - Contains Value?
 
 <cb>sismember <v>set_1<> <v>value<><>
+
 
 Returns all items in the set.
 @
@@ -356,87 +390,146 @@ Returns all items in the set.
 
 ### Set - Add
 
-<cb>sadd <v>set_1<> <v>value_1<><>
+<cb>sadd <v>set_name<> <v>value_1<><>
 
-<cb>sadd <v>set_1<> <v>value_1<> <v>value_2<> <v>...<><>
+<cb>sadd <v>set_name<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+Adds one or more values to the set.
+@
+@ sadd, command
 
 
 
 ### Set - Get All
 
-<cb>smembers <v>set_1<><>
+<cb>smembers <v>set_name<><>
+
 
 Returns all items in the set.
 @
-@ scard
+@ smembers, command
 @ key, length, count
 
 
 
 ### Set - Size
 
-<cb>scard <v>set_1<><>
+<cb>scard <v>set_name<><>
+
 
 Returns the number of items in the set.
 @
-@ scard
+@ scard, command
 @ key, length, count
 
 
 
 ## String
 
-Create:
-
-<cb>set <v>string_1<> "<v>string value.<>"<>
+A string value
 
 Type:
 
 <cb>string<>
 
 
+Create:
+
+<cb>set <v>string_name<> "<v>string value.<>"<>
+
+
 Commands:
 <l>https://redis.io/commands#string<>
-@
-@ new, instantiate, create
 
 
 
 ## String Operations
 
 
+### String - Create:
+
+<cb>set <v>string_name<> "<v>string value.<>"<>
+
+
+Creates a new string (or updates it if it already exists).
+@
+@ set, command
+@ new, define, instantiate
+
+
+
 ### String - Get
 
-<cb>get <v>string_1<><>
+<cb>get <v>string_name<><>
+
+
+Returns the value of the string.
 @
+@ get, command
 @ item, value
+
 
 
 ### String - Update
 
-<cb>set <v>string_1<> "<v>new string value.<>"<>
+<cb>set <v>string_name<> "<v>new string value.<>"<>
+
+
+Updates the value of a string (or creates the string if it doesn't exist).
 @
+@ set, command
 @ change, item, value
 
 
 
 ## ZSet
 
-<cb>zadd <v>zset_1<> <v>value_1<><>
-
-<cb>zadd <v>zset_1<> <v>value_1<> <v>value_2<> <v>...<><>
+A sorted set of unique values.
 
 Type:
 
 <cb>zset<>
 
-A sorted set of unique values.
+
+Create:
+
+<cb>zadd <v>zset_name<> <v>value_1<><>
+
+<cb>zadd <v>zset_name<> <v>value_1<> <v>value_2<> <v>...<><>
 
 
 Commands:
 <l>https://redis.io/commands#sorted_set<>
+
+
+
+## ZSet Operations
+
+
+### ZSet - Create
+
+<cb>zadd <v>zset_name<> <v>value_1<><>
+
+<cb>zadd <v>zset_name<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+Creates a new ZSet (or adds values to it if it already exists).
 @
-@ new, instantiate, create
+@ zadd, command
+@ new, define, instantiate
+
+
+### ZSet - Add
+
+<cb>zadd <v>zset_name<> <v>value_1<><>
+
+<cb>zadd <v>zset_name<> <v>value_1<> <v>value_2<> <v>...<><>
+
+
+Adds a value to a zset (will create the set if it doesn't exist).
+@
+@ zadd, command
 
 
 
@@ -445,4 +538,7 @@ Commands:
 
 ### Redis
 Remote Dictionary Service
+@
+@ Remote Dictionary Service
+
 

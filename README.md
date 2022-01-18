@@ -28,3 +28,16 @@ https://speedsheet.io/s/stash
 We love speedsheets and we'd love to have them for every language and library out there. But we don't have remotely enough time for all the great docs we want to create. If you would like to help, you can submit updates right here. It would be greatly appreciated! 
 
 And thanks!
+
+
+# Follow Up Items
+
+Cover Types:
+https://redis.io/topics/data-types
+
+Cover Commands:
+https://cheatography.com/tasjaevan/cheat-sheets/redis/
+
+https://redis.io/commands
+
+
